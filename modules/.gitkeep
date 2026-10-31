@@ -1,0 +1,4 @@
+<?php
+// Pasta preparada para os módulos do sistema (denúncias, votos, organizações, etc.)
+// Cada módulo terá os seus próprios controladores, modelos e serviços.
+// Será preenchida nas próximas etapas.

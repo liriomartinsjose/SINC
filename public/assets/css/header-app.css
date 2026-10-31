@@ -1,0 +1,496 @@
+
+/* =========================================================
+   SINC — Header da área autenticada
+   ========================================================= */
+
+:root {
+    --sinc-navy: #173b57;
+    --sinc-navy-dark: #102d43;
+    --sinc-blue: #2c6585;
+    --sinc-cyan: #7dd3e8;
+    --sinc-header-text: #f5f9fc;
+    --sinc-header-muted: #b9cbd8;
+    --sinc-header-border: rgba(255, 255, 255, 0.12);
+    --sinc-header-height: 76px;
+}
+
+/* Cabeçalho */
+
+.sinc-topbar {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    color: var(--sinc-header-text);
+    background:
+        radial-gradient(
+            ellipse at 16% -80%,
+            rgba(74, 153, 190, 0.24),
+            transparent 55%
+        ),
+        linear-gradient(
+            112deg,
+            var(--sinc-navy-dark) 0%,
+            var(--sinc-navy) 55%,
+            #204d6b 100%
+        );
+    border-bottom: 1px solid rgba(125, 211, 232, 0.22);
+    box-shadow: 0 5px 22px rgba(16, 45, 67, 0.12);
+}
+
+.sinc-topbar,
+.sinc-topbar * {
+    box-sizing: border-box;
+}
+
+.sinc-topbar-inner {
+    width: min(1440px, 100%);
+    min-height: var(--sinc-header-height);
+    margin-inline: auto;
+    padding: 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* Marca */
+
+.sinc-brand {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 11px;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.sinc-brand-symbol {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    place-items: center;
+    color: var(--sinc-cyan);
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(125, 211, 232, 0.34);
+    border-radius: 13px;
+    transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.sinc-brand-symbol svg {
+    display: block;
+    width: 32px;
+    height: 32px;
+}
+
+.sinc-brand:hover .sinc-brand-symbol {
+    background: rgba(125, 211, 232, 0.12);
+    border-color: rgba(125, 211, 232, 0.65);
+    transform: translateY(-1px);
+}
+
+.sinc-brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    line-height: 1;
+}
+
+.sinc-brand-copy strong {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.sinc-brand-copy strong span,
+.sinc-footer-brand span {
+    color: var(--sinc-cyan);
+}
+
+.sinc-brand-copy small {
+    color: var(--sinc-header-muted);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.45px;
+}
+
+/* Navegação */
+
+.sinc-main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-width: 0;
+}
+
+.sinc-nav-link {
+    position: relative;
+    display: inline-flex;
+    min-height: 41px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 13px;
+    color: #d5e2eb;
+    font-size: 12.5px;
+    font-weight: 550;
+    white-space: nowrap;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    transition:
+        color 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease;
+}
+
+.sinc-nav-link > svg {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.65;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sinc-nav-link:hover,
+.sinc-nav-link:focus-visible {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.07);
+}
+
+.sinc-nav-link:focus-visible,
+.sinc-brand:focus-visible,
+.sinc-logout-button:focus-visible {
+    outline: 2px solid var(--sinc-cyan);
+    outline-offset: 3px;
+}
+
+/* Ação principal da navegação */
+
+.sinc-nav-link-action {
+    margin-left: 4px;
+    padding-inline: 14px;
+    color: #fff;
+    background: rgba(125, 211, 232, 0.10);
+    border-color: rgba(125, 211, 232, 0.25);
+}
+
+.sinc-nav-link-action:hover,
+.sinc-nav-link-action:focus-visible {
+    background: rgba(125, 211, 232, 0.19);
+    border-color: rgba(125, 211, 232, 0.48);
+}
+
+.sinc-nav-plus {
+    display: inline-grid;
+    width: 19px;
+    height: 19px;
+    place-items: center;
+    color: var(--sinc-navy-dark);
+    background: var(--sinc-cyan);
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Utilizador */
+
+.sinc-topbar-account {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.sinc-account-avatar {
+    display: grid;
+    width: 39px;
+    height: 39px;
+    flex: 0 0 39px;
+    place-items: center;
+    color: #e7f8fc;
+    background: linear-gradient(145deg, #397b9d, #244e6c);
+    border: 1px solid rgba(163, 224, 239, 0.45);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 0.5px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.sinc-account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 160px;
+    min-width: 0;
+}
+
+.sinc-account-info strong {
+    overflow: hidden;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sinc-account-info > span {
+    overflow: hidden;
+    color: var(--sinc-header-muted);
+    font-size: 10.5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sinc-account-divider {
+    width: 1px;
+    height: 30px;
+    margin-inline: 4px;
+    background: var(--sinc-header-border);
+}
+
+.sinc-logout-form {
+    margin: 0;
+}
+
+.sinc-logout-button {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 11px;
+    color: #e0ebf2;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 9px;
+    font: inherit;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        color 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease;
+}
+
+.sinc-logout-button svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sinc-logout-button:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.32);
+}
+
+/* Conteúdo e rodapé */
+
+.app-content {
+    min-height: calc(100vh - var(--sinc-header-height) - 54px);
+}
+
+.app-footer {
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 14px 20px;
+    color: #718394;
+    background: #fff;
+    border-top: 1px solid #e7edf2;
+    font-size: 11px;
+    text-align: center;
+}
+
+.sinc-footer-brand {
+    color: var(--sinc-navy);
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+/* Tablets e portáteis */
+
+@media (max-width: 1180px) {
+    .sinc-topbar-inner {
+        gap: 18px;
+        padding-inline: 24px;
+    }
+
+    .sinc-nav-link {
+        gap: 7px;
+        padding-inline: 10px;
+        font-size: 12px;
+    }
+
+    .sinc-account-info {
+        max-width: 125px;
+    }
+
+    .sinc-account-divider {
+        margin-inline: 0;
+    }
+}
+
+/* Ecrãs estreitos */
+
+@media (max-width: 940px) {
+    .sinc-topbar-inner {
+        min-height: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 14px 20px;
+        padding: 14px 22px;
+    }
+
+    .sinc-brand {
+        margin-right: auto;
+    }
+
+    .sinc-topbar-account {
+        gap: 9px;
+    }
+
+    .sinc-main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        padding-top: 10px;
+        border-top: 1px solid var(--sinc-header-border);
+    }
+
+    .sinc-nav-link {
+        min-height: 38px;
+    }
+
+    .sinc-nav-link-action {
+        margin-left: auto;
+    }
+}
+
+/* Telemóveis */
+
+@media (max-width: 560px) {
+    .sinc-topbar-inner {
+        gap: 13px;
+        padding: 13px 15px 12px;
+    }
+
+    .sinc-brand {
+        gap: 8px;
+    }
+
+    .sinc-brand-symbol {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+        border-radius: 11px;
+    }
+
+    .sinc-brand-symbol svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .sinc-brand-copy strong {
+        font-size: 19px;
+    }
+
+    .sinc-brand-copy small {
+        font-size: 9px;
+    }
+
+    .sinc-account-avatar {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+        font-size: 11px;
+    }
+
+    .sinc-account-info {
+        display: none;
+    }
+
+    .sinc-account-divider {
+        display: none;
+    }
+
+    .sinc-logout-button {
+        width: 36px;
+        min-height: 36px;
+        padding: 0;
+    }
+
+    .sinc-logout-button span {
+        display: none;
+    }
+
+    .sinc-main-nav {
+        gap: 5px;
+        overflow-x: auto;
+        padding: 10px 0 2px;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+    }
+
+    .sinc-nav-link {
+        min-height: 36px;
+        gap: 6px;
+        padding-inline: 9px;
+        font-size: 11px;
+    }
+
+    .sinc-nav-link > svg {
+        width: 15px;
+        height: 15px;
+        flex-basis: 15px;
+    }
+
+    .sinc-nav-link-action {
+        margin-left: 0;
+    }
+
+    .sinc-nav-plus {
+        width: 17px;
+        height: 17px;
+        font-size: 15px;
+    }
+
+    .app-footer {
+        font-size: 10px;
+    }
+}
+
+/* Movimento reduzido */
+
+@media (prefers-reduced-motion: reduce) {
+    .sinc-topbar *,
+    .sinc-topbar *::before,
+    .sinc-topbar *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

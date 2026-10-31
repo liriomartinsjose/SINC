@@ -1,0 +1,34 @@
+﻿# Dependencias
+/vendor/
+/node_modules/
+
+# Variaveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs e ficheiros temporarios
+*.log
+/storage/logs/
+/storage/cache/
+/storage/tmp/
+
+# Anexos e provas de denuncias
+/storage/denuncias/*
+!/storage/denuncias/.gitkeep
+
+# Backups
+*.bak
+*.backup
+*.old
+
+# Sistema operativo
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Exportacao local da base de dados
+/sql/sinc.sql
+
+# Configuracao local da base de dados
+/config/database.php

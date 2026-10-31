@@ -1,0 +1,32 @@
+# Desativar listagem de diretórios
+Options -Indexes
+
+# Reescrita de URLs para o SINC
+# Encaminha todos os pedidos para index.php
+RewriteEngine On
+
+# Proteger diretórios internos (config, core, app, views, sql, modules)
+RewriteRule ^(config|core|app|views|sql|modules)(/|$) - [F,L]
+
+# Não reescrever ficheiros e pastas reais
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Encaminhar tudo o resto para index.php
+RewriteRule ^ index.php [QSA,L]
+
+# Proteger todos os ficheiros .php exceto index.php
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Deny from all
+    # Apache 2.4
+    Require all denied
+</FilesMatch>
+
+<Files "index.php">
+    Order Allow,Deny
+    Allow from all
+    # Apache 2.4
+    Require all granted
+</Files>

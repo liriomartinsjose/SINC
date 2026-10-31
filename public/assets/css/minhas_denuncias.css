@@ -1,0 +1,721 @@
+
+/* =========================================================
+   SINC — MINHAS DENÚNCIAS
+   Identidade visual: azul institucional, fundo claro e
+   componentes consistentes com o restante sistema.
+   ========================================================= */
+
+:root {
+    --blue-950: #18384c;
+    --blue-900: #20485f;
+    --blue-800: #2d5d77;
+    --blue-700: #36738f;
+    --blue-100: #e7f0f5;
+    --blue-50: #f3f8fb;
+
+    --sinc-text: #263746;
+    --sinc-muted: #718096;
+    --sinc-border: #e1e8ee;
+    --sinc-surface: #ffffff;
+    --sinc-page-bg: #f5f8fb;
+
+    --sinc-success: #18794e;
+    --sinc-success-bg: #eaf7ef;
+    --sinc-warning: #946200;
+    --sinc-warning-bg: #fff7df;
+    --sinc-danger: #b42332;
+    --sinc-danger-bg: #fff0f0;
+
+    --sinc-radius-sm: 8px;
+    --sinc-radius-md: 14px;
+    --sinc-radius-lg: 20px;
+
+    --sinc-shadow-sm: 0 3px 12px rgba(24, 56, 76, 0.045);
+    --sinc-shadow-md: 0 10px 30px rgba(24, 56, 76, 0.075);
+
+    --sinc-transition: 180ms ease;
+}
+
+/* =========================================================
+   1. PÁGINA E CONTAINER
+   ========================================================= */
+
+.sinc-page.sinc-list-page {
+    min-height: 100%;
+    padding: 38px 24px 56px;
+    background: var(--sinc-page-bg);
+    color: var(--sinc-text);
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.sinc-list-page *,
+.sinc-list-page *::before,
+.sinc-list-page *::after {
+    box-sizing: border-box;
+}
+
+.sinc-list-page .sinc-page-container {
+    width: 100%;
+    max-width: 1160px;
+    margin-inline: auto;
+}
+
+/* =========================================================
+   2. CABEÇALHO
+   ========================================================= */
+
+.sinc-list-page .sinc-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--sinc-border);
+}
+
+.sinc-list-page .sinc-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: var(--blue-700);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    line-height: 1.5;
+}
+
+.sinc-list-page .sinc-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--blue-700);
+}
+
+.sinc-list-page .sinc-list-header h1 {
+    margin: 0;
+    color: var(--blue-950);
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 750;
+    letter-spacing: -0.9px;
+    line-height: 1.2;
+}
+
+.sinc-list-page .sinc-list-header p {
+    max-width: 580px;
+    margin: 10px 0 0;
+    color: var(--sinc-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   3. BOTÕES
+   ========================================================= */
+
+.sinc-list-page .sinc-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 43px;
+    padding: 11px 17px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    cursor: pointer;
+    transition:
+        background var(--sinc-transition),
+        color var(--sinc-transition),
+        border-color var(--sinc-transition),
+        box-shadow var(--sinc-transition),
+        transform var(--sinc-transition);
+}
+
+.sinc-list-page .sinc-button:focus-visible {
+    outline: 3px solid rgba(54, 115, 143, 0.3);
+    outline-offset: 3px;
+}
+
+.sinc-list-page .sinc-button-primary {
+    color: #ffffff;
+    background: var(--blue-900);
+    border-color: var(--blue-900);
+    box-shadow: 0 4px 10px rgba(32, 72, 95, 0.13);
+}
+
+.sinc-list-page .sinc-button-primary:hover {
+    background: var(--blue-800);
+    border-color: var(--blue-800);
+    box-shadow: 0 7px 16px rgba(32, 72, 95, 0.18);
+    transform: translateY(-1px);
+}
+
+.sinc-list-page .sinc-button-secondary {
+    color: var(--blue-900);
+    background: #ffffff;
+    border-color: #cfdae3;
+}
+
+.sinc-list-page .sinc-button-secondary:hover {
+    color: var(--blue-950);
+    background: var(--blue-50);
+    border-color: var(--blue-700);
+}
+
+.sinc-list-page .sinc-button-danger {
+    color: var(--sinc-danger);
+    background: #ffffff;
+    border-color: #f0c8cd;
+}
+
+.sinc-list-page .sinc-button-danger:hover {
+    color: #ffffff;
+    background: var(--sinc-danger);
+    border-color: var(--sinc-danger);
+}
+
+.sinc-list-page .sinc-button:active {
+    transform: translateY(0);
+}
+
+.sinc-list-page .sinc-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* =========================================================
+   4. MENSAGENS DE FEEDBACK
+   ========================================================= */
+
+.sinc-list-page .sinc-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 15px 17px;
+    border: 1px solid transparent;
+    border-radius: var(--sinc-radius-sm);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.sinc-list-page .sinc-alert::before {
+    flex: 0 0 auto;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.sinc-list-page .sinc-alert-success {
+    color: var(--sinc-success);
+    background: var(--sinc-success-bg);
+    border-color: #c8ead5;
+}
+
+.sinc-list-page .sinc-alert-success::before {
+    content: "✓";
+}
+
+.sinc-list-page .sinc-alert-error {
+    color: var(--sinc-danger);
+    background: var(--sinc-danger-bg);
+    border-color: #f4cdd1;
+}
+
+.sinc-list-page .sinc-alert-error::before {
+    content: "!";
+}
+
+/* =========================================================
+   5. RESUMO DO NÚMERO DE DENÚNCIAS
+   ========================================================= */
+
+.sinc-list-page .sinc-list-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 19px 22px;
+    background: var(--sinc-surface);
+    border: 1px solid var(--sinc-border);
+    border-radius: var(--sinc-radius-md);
+    box-shadow: var(--sinc-shadow-sm);
+}
+
+.sinc-list-page .sinc-list-summary > div {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.sinc-list-page .sinc-summary-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    min-height: 46px;
+    padding: 7px;
+    color: var(--blue-900);
+    background: var(--blue-100);
+    border-radius: 12px;
+    font-size: 23px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.sinc-list-page .sinc-summary-label {
+    color: var(--sinc-text);
+    font-size: 13px;
+    font-weight: 650;
+}
+
+/* =========================================================
+   6. LISTA DE DENÚNCIAS
+   ========================================================= */
+
+.sinc-list-page .sinc-denuncia-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sinc-list-page .sinc-denuncia-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
+    gap: 25px;
+    padding: 24px;
+    background: var(--sinc-surface);
+    border: 1px solid var(--sinc-border);
+    border-radius: var(--sinc-radius-md);
+    box-shadow: var(--sinc-shadow-sm);
+    transition:
+        border-color var(--sinc-transition),
+        box-shadow var(--sinc-transition),
+        transform var(--sinc-transition);
+}
+
+.sinc-list-page .sinc-denuncia-card:hover {
+    border-color: #cad9e4;
+    box-shadow: var(--sinc-shadow-md);
+    transform: translateY(-2px);
+}
+
+.sinc-list-page .sinc-denuncia-card-main {
+    min-width: 0;
+}
+
+/* Referência e estado */
+
+.sinc-list-page .sinc-card-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.sinc-list-page .sinc-reference {
+    color: var(--sinc-muted);
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.sinc-list-page .sinc-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 27px;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.sinc-list-page .sinc-status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.sinc-list-page .status-pendente {
+    color: #8a5b00;
+    background: #fff6df;
+    border-color: #f2e1a9;
+}
+
+.sinc-list-page .status-validada {
+    color: #18794e;
+    background: #eaf7ef;
+    border-color: #c8ead5;
+}
+
+.sinc-list-page .status-rejeitada {
+    color: #b42332;
+    background: #fff0f0;
+    border-color: #f4cdd1;
+}
+
+.sinc-list-page .status-duplicada {
+    color: #6544a1;
+    background: #f3edff;
+    border-color: #dfd2fa;
+}
+
+/* Título e conteúdo */
+
+.sinc-list-page .sinc-denuncia-card h2 {
+    margin: 0 0 9px;
+    color: var(--blue-950);
+    font-size: 19px;
+    font-weight: 750;
+    letter-spacing: -0.35px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.sinc-list-page .sinc-card-category {
+    display: inline-block;
+    margin: 0 0 13px;
+    color: var(--blue-700);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.sinc-list-page .sinc-card-description {
+    display: -webkit-box;
+    margin: 0 0 18px;
+    color: #536474;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+/* Local e data */
+
+.sinc-list-page .sinc-card-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    padding-top: 15px;
+    border-top: 1px solid #edf1f4;
+}
+
+.sinc-list-page .sinc-card-details span {
+    color: var(--sinc-muted);
+    font-size: 11px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.sinc-list-page .sinc-card-details strong {
+    color: var(--sinc-text);
+    font-weight: 750;
+}
+
+.sinc-list-page .sinc-linked-occurrence {
+    margin: 14px 0 0;
+    padding: 9px 12px;
+    color: var(--blue-900);
+    background: var(--blue-50);
+    border-left: 3px solid var(--blue-700);
+    border-radius: 0 6px 6px 0;
+    font-size: 11px;
+    font-weight: 650;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   7. ACÇÕES DOS CARTÕES
+   ========================================================= */
+
+.sinc-list-page .sinc-denuncia-card-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 10px;
+    min-width: 155px;
+    padding-left: 23px;
+    border-left: 1px solid #edf1f4;
+}
+
+.sinc-list-page .sinc-denuncia-card-actions > a,
+.sinc-list-page .sinc-denuncia-card-actions > form,
+.sinc-list-page .sinc-denuncia-card-actions > form button {
+    width: 100%;
+}
+
+.sinc-list-page .sinc-denuncia-card-actions .sinc-button {
+    min-height: 40px;
+    padding: 10px 13px;
+    font-size: 12px;
+}
+
+.sinc-list-page .sinc-denuncia-card-actions form {
+    margin: 0;
+}
+
+/* =========================================================
+   8. ESTADO VAZIO
+   ========================================================= */
+
+.sinc-list-page .sinc-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 340px;
+    padding: 45px 25px;
+    background: var(--sinc-surface);
+    border: 1px dashed #cbd8e2;
+    border-radius: var(--sinc-radius-lg);
+    text-align: center;
+}
+
+.sinc-list-page .sinc-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 20px;
+    color: var(--blue-800);
+    background: var(--blue-100);
+    border-radius: 24px;
+    font-size: 42px;
+    line-height: 1;
+}
+
+.sinc-list-page .sinc-empty-state h2 {
+    margin: 0 0 10px;
+    color: var(--blue-950);
+    font-size: 21px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.sinc-list-page .sinc-empty-state p {
+    max-width: 440px;
+    margin: 0 0 23px;
+    color: var(--sinc-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   9. RESPONSIVIDADE — TABLETS
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .sinc-page.sinc-list-page {
+        padding: 30px 20px 42px;
+    }
+
+    .sinc-list-page .sinc-denuncia-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding: 22px;
+    }
+
+    .sinc-list-page .sinc-denuncia-card-actions {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        min-width: 0;
+        padding: 17px 0 0;
+        border-top: 1px solid #edf1f4;
+        border-left: 0;
+    }
+
+    .sinc-list-page .sinc-denuncia-card-actions > a,
+    .sinc-list-page .sinc-denuncia-card-actions > form {
+        width: auto;
+    }
+
+    .sinc-list-page .sinc-denuncia-card-actions > form button {
+        width: auto;
+        min-width: 110px;
+    }
+}
+
+/* =========================================================
+   10. RESPONSIVIDADE — TELEMÓVEIS
+   ========================================================= */
+
+@media (max-width: 600px) {
+    .sinc-page.sinc-list-page {
+        padding: 24px 14px 34px;
+    }
+
+    .sinc-list-page .sinc-list-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 22px;
+        padding-bottom: 21px;
+    }
+
+    .sinc-list-page .sinc-list-header h1 {
+        font-size: 27px;
+    }
+
+    .sinc-list-page .sinc-list-header p {
+        margin-top: 8px;
+        font-size: 13px;
+    }
+
+    .sinc-list-page .sinc-list-header > .sinc-button {
+        width: 100%;
+    }
+
+    .sinc-list-page .sinc-list-summary {
+        margin-bottom: 15px;
+        padding: 15px;
+    }
+
+    .sinc-list-page .sinc-summary-number {
+        min-width: 42px;
+        min-height: 42px;
+        font-size: 21px;
+    }
+
+    .sinc-list-page .sinc-summary-label {
+        font-size: 12px;
+    }
+
+    .sinc-list-page .sinc-denuncia-list {
+        gap: 13px;
+    }
+
+    .sinc-list-page .sinc-denuncia-card {
+        gap: 18px;
+        padding: 17px;
+        border-radius: 12px;
+    }
+
+    .sinc-list-page .sinc-card-meta {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .sinc-list-page .sinc-denuncia-card h2 {
+        font-size: 17px;
+    }
+
+    .sinc-list-page .sinc-card-description {
+        font-size: 12px;
+        line-height: 1.75;
+        -webkit-line-clamp: 5;
+    }
+
+    .sinc-list-page .sinc-card-details {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .sinc-list-page .sinc-denuncia-card-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 9px;
+    }
+
+    .sinc-list-page .sinc-denuncia-card-actions > a,
+    .sinc-list-page .sinc-denuncia-card-actions > form,
+    .sinc-list-page .sinc-denuncia-card-actions > form button {
+        width: 100%;
+    }
+
+    .sinc-list-page .sinc-denuncia-card-actions .sinc-button {
+        min-height: 43px;
+    }
+
+    .sinc-list-page .sinc-empty-state {
+        min-height: 300px;
+        padding: 32px 19px;
+    }
+
+    .sinc-list-page .sinc-empty-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 36px;
+    }
+
+    .sinc-list-page .sinc-empty-state h2 {
+        font-size: 19px;
+    }
+
+    .sinc-list-page .sinc-empty-state p {
+        font-size: 12px;
+    }
+
+    .sinc-list-page .sinc-empty-state .sinc-button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   11. ECRÃS MUITO PEQUENOS
+   ========================================================= */
+
+@media (max-width: 360px) {
+    .sinc-page.sinc-list-page {
+        padding-inline: 10px;
+    }
+
+    .sinc-list-page .sinc-denuncia-card {
+        padding: 14px;
+    }
+
+    .sinc-list-page .sinc-denuncia-card h2 {
+        font-size: 16px;
+    }
+
+    .sinc-list-page .sinc-card-meta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* =========================================================
+   12. ACESSIBILIDADE — MOVIMENTO REDUZIDO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .sinc-list-page *,
+    .sinc-list-page *::before,
+    .sinc-list-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .sinc-list-page .sinc-denuncia-card:hover,
+    .sinc-list-page .sinc-button:hover {
+        transform: none;
+    }
+}

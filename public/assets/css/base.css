@@ -1,0 +1,100 @@
+/* ============================================
+   SINC — base.css
+   Reset de estilos, variáveis de cor, tipografia
+   ============================================ */
+
+:root {
+    /* Paleta de cores do SINC */
+    --color-primary: #1a56db;
+    --color-primary-dark: #1140a8;
+    --color-primary-light: #e0e7ff;
+    --color-secondary: #0f766e;
+    --color-accent: #f59e0b;
+    --color-success: #16a34a;
+    --color-warning: #ea580c;
+    --color-error: #dc2626;
+
+    /* Tons neutros */
+    --color-neutral-900: #111827;
+    --color-neutral-700: #374151;
+    --color-neutral-500: #6b7280;
+    --color-neutral-300: #d1d5db;
+    --color-neutral-100: #f3f4f6;
+    --color-neutral-50: #f9fafb;
+    --color-white: #ffffff;
+
+    /* Tipografia */
+    --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-size-base: 16px;
+    --font-size-sm: 14px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 32px;
+
+    /* Espaçamento (sistema de 8px) */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 40px;
+    --space-6: 48px;
+
+    /* Outros */
+    --border-radius: 8px;
+    --max-width: 1200px;
+    --transition: 0.2s ease;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-neutral-900);
+    background-color: var(--color-neutral-50);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 600;
+    color: var(--color-neutral-900);
+}
+
+h1 { font-size: var(--font-size-2xl); }
+h2 { font-size: var(--font-size-xl); }
+h3 { font-size: var(--font-size-lg); }
+
+p {
+    line-height: 1.6;
+    color: var(--color-neutral-700);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
